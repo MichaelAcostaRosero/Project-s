@@ -1,70 +1,95 @@
-<div>
-<form>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationServer01">First name</label>
-      <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
+<div class="registro container">
+<label id="encabezados">Crea una cuenta</label>
+  <br>
+  <form>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Nombres</label>
+        <input type="text" class="form-control" id="nombre" name="nombre"  placeholder="Michael Danilo" required>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServer02">Last name</label>
-      <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-      <div class="valid-feedback">
-        Looks good!
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Apellidos</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Acosta Rosero" required>
       </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationServerUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend3">@</span>
-        </div>
-        <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
-        <div class="invalid-feedback">
-          Please choose a username.
+      <div class="col-md-3 mb-2">
+        <label for="validationDefaultUsername">Username</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          </div>
+          <input type="text" class="form-control" id="username" name="username" placeholder="mdar77" aria-describedby="inputGroupPrepend2" required>
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationServer03">City</label>
-      <input type="text" class="form-control is-invalid" id="validationServer03" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
+    <div class="form-row">
+    <div class="form-group col-md-1">
+      <label for="inputEmail4">Email</label>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-1">
+      <label for="inputPassword4">Password</label>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="password" class="form-control" id="pass" name="pass" placeholder="al menos 8 caracteres" required>
+    </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Ciudad</label>
+          <select class="custom-select" id="ciudad" name="ciudad" required>
+              <option selected disabled value="">Choose...</option>
+              <option>...</option>
+          </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Provincia</label>
+        <select class="custom-select" id="validationDefault04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
       </div>
     </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer04">State</label>
-      <select class="custom-select is-invalid" id="validationServer04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-feedback">
-        Please select a valid state.
+    <label id="h2">Fecha de nacimiento</label>
+      <div class="form-row">
+        <div class="col-md-1 mb-1"> 
+          <select class="custom-select" id="dia" name="dia" required>
+            <option selected disabled value="">Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-1 mb-1">
+          <select class="custom-select" id="mes" name="mes" required>
+            <option selected disabled value="">Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-1 mb-1">
+          <select class="custom-select" id="año" name="año" required>
+            <option selected disabled value="">Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationServer05">Zip</label>
-      <input type="text" class="form-control is-invalid" id="validationServer05" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
+      <label id="h2">Sexo</label>
+      <div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="sexo" id="sexo" value="mujer">
+          <label class="form-check-label" for="inlineRadio1">Mujer</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="sexo" id="sexo" value="hombre">
+          <label class="form-check-label" for="inlineRadio2">Hombre</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="sexo" id="sexo" value="personalizado" disabled>
+          <label class="form-check-label" for="inlineRadio3">Personalizado (disabled)</label>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-      <label class="form-check-label" for="invalidCheck3">
-        Agree to terms and conditions
-      </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form>
+      <br><br>
+    <button class="btn btn-primary" type="submit">Registrar</button>
+  </form>
 </div>
