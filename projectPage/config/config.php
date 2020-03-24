@@ -2,7 +2,7 @@
     define ("LOCALHOST" , "localhost");
     define ("BDNOMBRE" , "proyecto0");
     define ("USUARIO" , "root");
-    define ("PASSWORD" , "");
+    define ("PASSWORD" , "fernando1991");
     define ("PUERTO" , "3306");
 
     define ("HEADER" , "view/plantillas/header.php");
