@@ -3,7 +3,7 @@
             <div id="formContent">
                 <h2 id="h2">Login</h2>
                 <div class="fadeIn first">
-                    <img src="imagenes/mec.jpg" id="icon" alt="User Icon" />
+                    <img src="imagenes/Logo.png" id="icon" alt="User Icon" />
                 </div>
                     <form method="post" action="index.php?c=Inicio&a=noticias">
                         <div class="form-group container">
