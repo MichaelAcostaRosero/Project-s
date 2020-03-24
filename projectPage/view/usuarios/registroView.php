@@ -42,7 +42,7 @@
         <label for="validationDefault04">Ciudad</label>
           <select class="custom-select" id="ciudad" name="ciudad" required>
             <option selected disabled value="">Escojer...</option>
-              <?php foreach ($datos as $ciudad) { ?>
+              <?php foreach ($ciudades as $ciudad) { ?>
                 <option value="<?php echo $ciudad['ciudad_Id'] ?>">
                   <?php echo $ciudad['ciudad'] ?>
                 </option>
