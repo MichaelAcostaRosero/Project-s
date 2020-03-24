@@ -11,7 +11,7 @@
                 $sentencia= $this->conexion->prepare($sql);
                 $parametros= array();
                 $sentencia->execute($parametros);
-                $resultados= $sentencia->fetchAll(PDO::FETCH_OBJ);
+                $resultados= $sentencia->fetchAll(PDO::FETCH_ASSOC);
                 return $resultados;
                 }catch(Exception $e){
                     die($e->getMessage());

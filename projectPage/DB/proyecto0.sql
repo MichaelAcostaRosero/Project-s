@@ -33,6 +33,13 @@ INSERT INTO pciudad (ciudad) VALUES('Esmeraldas');
 INSERT INTO pciudad (ciudad) VALUES('Quevedo');
 INSERT INTO pciudad (ciudad) VALUES('Riobamba');
 
+CREATE TABLE pProvincia(
+	provincia_Id INT (3) NOT NULL AUTO_INCREMENT UNIQUE KEY,
+    provincia VARCHAR (25),
+    estado CHAR (1) DEFAULT 'A',
+    PRIMARY KEY (provincia_Id)
+);
+
 CREATE TABLE pRegistro(
     registro_Id INT (10) AUTO_INCREMENT NOT NULL,
     cedula varchar (10),
