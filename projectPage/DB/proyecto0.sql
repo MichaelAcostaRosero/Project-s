@@ -18,20 +18,19 @@ CREATE TABLE pciudad(
     PRIMARY KEY (ciudad_Id)
 );
 
-INSERT INTO pciudad (ciudad) VALUES('Guayaquil');
-INSERT INTO pciudad (ciudad) VALUES('Quito');
-INSERT INTO pciudad (ciudad) VALUES('Cuenca');
-INSERT INTO pciudad (ciudad) VALUES('Santo Domingo');
-INSERT INTO pciudad (ciudad) VALUES('Machala');
-INSERT INTO pciudad (ciudad) VALUES('Duran');
-INSERT INTO pciudad (ciudad) VALUES('Guayaquil');
-INSERT INTO pciudad (ciudad) VALUES('Manta');
-INSERT INTO pciudad (ciudad) VALUES('Portoviejo');
-INSERT INTO pciudad (ciudad) VALUES('Loja');
-INSERT INTO pciudad (ciudad) VALUES('Ambato');
-INSERT INTO pciudad (ciudad) VALUES('Esmeraldas');
-INSERT INTO pciudad (ciudad) VALUES('Quevedo');
-INSERT INTO pciudad (ciudad) VALUES('Riobamba');
+INSERT INTO pciudad (ciudad) VALUES('GUAYAQUIL');
+INSERT INTO pciudad (ciudad) VALUES('QUITO');
+INSERT INTO pciudad (ciudad) VALUES('CUENCA');
+INSERT INTO pciudad (ciudad) VALUES('SANTO DOMINGO');
+INSERT INTO pciudad (ciudad) VALUES('MACHALA');
+INSERT INTO pciudad (ciudad) VALUES('DURAN');
+INSERT INTO pciudad (ciudad) VALUES('MANTA');
+INSERT INTO pciudad (ciudad) VALUES('PORTOVIEJO');
+INSERT INTO pciudad (ciudad) VALUES('LOJA');
+INSERT INTO pciudad (ciudad) VALUES('AMBATO');
+INSERT INTO pciudad (ciudad) VALUES('ESMERALDAS');
+INSERT INTO pciudad (ciudad) VALUES('QUEVEDO');
+INSERT INTO pciudad (ciudad) VALUES('RIOBAMBA');
 
 CREATE TABLE pProvincia(
 	provincia_Id INT (3) NOT NULL AUTO_INCREMENT UNIQUE KEY,
