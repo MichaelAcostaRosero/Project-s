@@ -41,13 +41,31 @@
       <div class="col-md-3 mb-3">
         <label for="validationDefault04">Ciudad</label>
           <select class="custom-select" id="ciudad" name="ciudad" required>
-              <option selected disabled value="">Choose...</option>
-              <option>...</option>
+            <option selected disabled value="">Escojer...</option>
+              <?php foreach ($datos as $ciudad) { ?>
+                <option value="<?php echo $ciudad['ciudad_Id'] ?>">
+                  <?php echo $ciudad['ciudad'] ?>
+                </option>
+              <?php } ?>
           </select>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault04">Provincia</label>
-        <select class="custom-select" id="validationDefault04" required>
+        <select class="custom-select" id="provincia" name="provincia" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Cantón</label>
+        <select class="custom-select" id="canton" name="canton" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Parroquia</label>
+        <select class="custom-select" id="parroquia" name="parroquia" required>
           <option selected disabled value="">Choose...</option>
           <option>...</option>
         </select>
