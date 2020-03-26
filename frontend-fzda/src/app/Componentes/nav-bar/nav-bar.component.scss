@@ -1,0 +1,16 @@
+.hoverable {
+    transition: font-size 1s;
+}
+
+.hoverable:hover {
+    // -webkit-box-shadow: 0px 0px 31px 10px #ff0000;
+    // -moz-box-shadow: 0px 0px 31px 10px #ff0000;
+    // box-shadow: 0px 0px 50px 10px #ff0000;
+    text-shadow: 0px 5px 30px #fdff00;
+    font-size: 25px;
+    transition: font-size 1s;
+}
+
+nav {
+    z-index: 10;
+}
