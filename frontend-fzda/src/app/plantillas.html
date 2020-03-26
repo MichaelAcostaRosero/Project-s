@@ -1,0 +1,8 @@
+<div class="col-12">
+    <mat-form-field class="w-100">
+        <input matInput placeholder="Trabajos" type="text" formControlName="Trabajos">
+        <mat-error *ngIf="!formUser.controls['Trabajos'].valid">
+            <strong> Solo números</strong>
+        </mat-error>
+    </mat-form-field>
+</div>
