@@ -1,0 +1,31 @@
+database_name = project_fzda
+
+-------Instalaciones Angular :
+1.-Angular material selecciona Indigo-ping y lo demas todo y (yes)
+ng add @angular/material
+
+
+
+
+-------Instalaciones Laravel :
+
+1.-Instalacion de cors para los encabezados de solicitud mas info https://github.com/fruitcake/laravel-cors
+- composer require fruitcake/laravel-cors
+
+- en este ruta añade esto app/Http/Kernel.php class:
+
+protected $middleware = [
+    // ...
+    \Fruitcake\Cors\HandleCors::class,
+];
+
+y en config/app.php
+en provider agregas
+        \Fruitcake\Cors\CorsServiceProvider::class,
+y ejecutas
+
+
+
+
+
+

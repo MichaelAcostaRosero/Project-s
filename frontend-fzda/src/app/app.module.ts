@@ -17,16 +17,23 @@ import {
   MatInputModule,
   MatButtonModule,
   MatIconModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatStepperModule,
+  MatSelectModule,
+  MatBottomSheetModule,
+  MatListModule,
+  MatRadioModule
 }
 from '@angular/material';
+import { ButtonShettRegisterContactComponent } from './Componentes/button-shett-register-contact/button-shett-register-contact.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ButtonShettRegisterContactComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +45,15 @@ from '@angular/material';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatBottomSheetModule,
     MatIconModule,
-    MatSnackBarModule
-
+    MatSnackBarModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatListModule,
+    MatRadioModule
   ],
+  entryComponents:[ButtonShettRegisterContactComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
