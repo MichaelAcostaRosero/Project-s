@@ -22,10 +22,15 @@ import {
   MatSelectModule,
   MatBottomSheetModule,
   MatListModule,
-  MatRadioModule
+  MatRadioModule,
+  MatAutocompleteModule,
+  MatCardModule,
+  MatDialogModule,
+  MatSidenavModule
 }
 from '@angular/material';
 import { ButtonShettRegisterContactComponent } from './Componentes/button-shett-register-contact/button-shett-register-contact.component';
+import { PreViewComponent } from './logOut/register/pre-view/pre-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,8 @@ import { ButtonShettRegisterContactComponent } from './Componentes/button-shett-
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ButtonShettRegisterContactComponent
+    ButtonShettRegisterContactComponent,
+    PreViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +57,13 @@ import { ButtonShettRegisterContactComponent } from './Componentes/button-shett-
     MatStepperModule,
     MatSelectModule,
     MatListModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatCardModule,
+    MatDialogModule,
+    MatSidenavModule
   ],
-  entryComponents:[ButtonShettRegisterContactComponent],
+  entryComponents:[ButtonShettRegisterContactComponent,PreViewComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

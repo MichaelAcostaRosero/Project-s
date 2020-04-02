@@ -1,0 +1,68 @@
+<!-- <div mat-dialog-content> -->
+<div mat-dialog-title>
+    <img class="avatar" [src]="data.logo" alt="">
+    <!-- <h1>{{data.name}}</h1>
+    <title>{{data.email}}</title>
+    <title>{{data.address}}</title> -->
+    <label>
+        <h1>Fernando Zhunio</h1>
+        <p>fzhunio91@hotmail.com</p>
+        <p>El frotin bloque 8 manzana 1991</p>
+    </label>
+</div>
+<mat-dialog-content>
+    <mat-drawer-container class="example-container">
+        <mat-drawer position="end" class="bg-dark" mode="side" opened>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+        </mat-drawer>
+        <mat-drawer-content>
+            <mat-card class="example-card">
+                <!-- <mat-card-header>
+                    <img mat-card-avatar [src]="data.logo" alt="">
+                    <mat-card-title>{{data.name}}</mat-card-title>
+                    <mat-card-subtitle>{{data.email}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{data.address}}</mat-card-subtitle>
+                </mat-card-header> -->
+                <mat-card-content>
+                    <div class="jumbotron my-2">
+                        <h1 class="display-4">Descripción</h1>
+                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <div>
+                            <p>{{data.descripcion}}</p>
+                        </div>
+                    </div>
+                    <div class="jumbotron">
+                        <h1 class="display-4">Trabajos</h1>
+                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <div>
+                            <div *ngFor="let trabajo of data.trabajos; let i = index" [attr.data-index]="i" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{trabajo.trabajo}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jumbotron my-2">
+                        <h1 class="display-4">Contactos</h1>
+                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <hr class="my-4">
+                        <div>
+                            <div *ngFor="let contacto of data.contactos; let i = index" [attr.data-index]="i" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="{{contacto.icon}}"></i> {{contacto.contacto}}
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button>SHARE</button>
+</mat-dialog-actions>

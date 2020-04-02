@@ -1,78 +1,3 @@
-<!-- <div>
-    <div class="container">
-        <div class="display-4 mb-3 text-white">Register FZDA</div>
-        <div [formGroup]="formUser">
-            <div class="card p-3 row m-0 mb-2  ">
-                <div class="col-12">
-                    <mat-form-field class="w-100">
-                        <input matInput placeholder="Nombres" formControlName="Nombre">
-                        <mat-error *ngIf="!formUser.controls['Nombre'].valid">
-                            Nombres<strong> requerido</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col-12">
-                    <mat-form-field class="w-100">
-                        <input matInput placeholder="Correo" formControlName="Correo">
-                        <mat-error *ngIf="!formUser.controls['Correo'].valid">
-                            Correo <strong> no valido</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col-12">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>Contraseña</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Clave">
-                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                        <mat-error *ngIf="!formUser.controls['Clave'].valid">
-                            Contraseña <strong> no valida</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col-12">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-label>Confirme Contraseña</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="ClaveConfirm">
-                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                        <mat-error *ngIf="!formUser.controls['Clave'].valid">
-                            Contraseña <strong> no valida</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col-12">
-                    <mat-form-field class="w-100">
-                        <input formControlName="Trabajo" matInput placeholder="Trabajos" type="text">
-                        <button type="button" mat-icon-button matSuffix (click)="addTrabajo()"><i
-                                class="text-dark fas fa-plus-circle"></i></button>
-                    </mat-form-field>
-                    <div>
-                        <div *ngFor="let trabajo of trabajos; let i = index" [attr.data-index]="i" class="alert alert-warning alert-dismissible fade show" role="alert">
-                            {{trabajo}}
-                            <button type="button" (click)="deleteTrabajo(i)" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <mat-form-field class="w-100">
-                            <textarea matInput placeholder="Que Hacemos" type="text" formControlName="Descripcion"></textarea>
-                            <mat-error *ngIf="!formUser.controls['Descripcion'].valid">
-                                <strong> Descripción no valido</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" [disabled]="trabajos.length == 0 || !formUser.valid " (click)="register()" mat-raised-button>Enviar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="container">
     <div class="display-4 text-white">Registro</div>
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
@@ -131,10 +56,21 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="formUser">
-            <form [formGroup]="formUser">
-                <ng-template matStepLabel>Trabajos</ng-template>
+
+        <!-- Trabajos y descripcion -->
+        <mat-step [stepControl]="formTrabajos">
+            <form [formGroup]="formTrabajos">
+                <ng-template matStepLabel>Trabajos y Descripción</ng-template>
                 <div class="row">
+                    <div class="col-12">
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label for="descripcion">Que hacemos?</mat-label>
+                            <textarea id="descripcion" matInput type="text" formControlName="Descripcion"></textarea>
+                            <mat-error *ngIf="!formTrabajos.controls['Descripcion'].valid">
+                                <strong> Descripción no valido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
                     <div class="col-12">
                         <mat-form-field class="w-100" appearance="fill">
                             <mat-label for="trabajo">Trabajo</mat-label>
@@ -142,10 +78,10 @@
                             <button type="button" mat-icon-button matSuffix (click)="addTrabajo()"><i
                                     class="text-dark fas fa-plus-circle"></i></button>
                         </mat-form-field>
-                        <span>Maximo 5 Trabajo los cuales usted realiza</span>
+                        <small>Maximo 5 Trabajo los cuales usted realiza</small>
                         <div>
                             <div *ngFor="let trabajo of trabajos; let i = index" [attr.data-index]="i" class="alert alert-warning alert-dismissible fade show" role="alert">
-                                {{trabajo}}
+                                {{trabajo.trabajo}}
                                 <button type="button" (click)="deleteTrabajo(i)" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -159,27 +95,16 @@
                 </div>
             </form>
         </mat-step>
+        <!-- ubicaciones -->
         <mat-step [stepControl]="formUser">
             <form [formGroup]="formUser">
-                <ng-template matStepLabel>Descripción y Ubicación</ng-template>
+                <ng-template matStepLabel>Ubicación y Localidad</ng-template>
                 <div class="row">
-                    <div class="col-12">
-                        <mat-form-field class="w-100" appearance="fill">
-                            <mat-label for="descripcion">Que hacemos?</mat-label>
-                            <textarea id="descripcion" matInput type="text" formControlName="Descripcion"></textarea>
-                            <mat-error *ngIf="!formUser.controls['Descripcion'].valid">
-                                <strong> Descripción no valido</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-12 ">
+                    <!-- <div class="col-12 ">
                         <mat-form-field class="col-lg-4 col-12">
                             <mat-label>Seleccione un pais ...</mat-label>
                             <mat-select [(value)]="pais">
                                 <mat-option value="{{country.name}}" *ngFor="let country of paises">{{country.name}}</mat-option>
-                                <!-- <mat-option value="option1">Option 1</mat-option>
-                                <mat-option value="option2">Option 2</mat-option>
-                                <mat-option value="option3">Option 3</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field class="col-lg-4 col-12">
@@ -200,8 +125,41 @@
                                 <mat-option value="option3">Option 3</mat-option>
                             </mat-select>
                         </mat-form-field>
+                    </div> -->
+                    <div class="col-12">
+                        <!-- <mat-form-field class="w-100" appearance="fill">
+                                <mat-label for="direccion">Dirección</mat-label>
+                                <input id="direccion" matInput formControlName="Direccion">
+                                <mat-error *ngIf="!formUser.controls['Direccion'].valid">
+                                    Dirección<strong> requerido</strong>
+                                </mat-error>
+                            </mat-form-field> -->
+                        <mat-form-field class="w-100" appearance="fill">
+                            <mat-label for="direccion">Dirección</mat-label>
+                            <input (keyup)="searchWord($event)" type="text" aria-label="Number" matInput formControlName="Direccion" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let country of countrys" [value]="country">
+                                    {{country}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
                     </div>
+                    <div class="col-12">Tiene un local de atención ?</div>
+                    <div class="col-12">
+                        <mat-radio-group formControlName="IsLocal" aria-label="Seleccion la red Social">
+                            <mat-radio-button [value]=true> SI</mat-radio-button>
+                            <mat-radio-button [value]=false> NO</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div *ngIf="formUser.controls['IsLocal'].value" class="col-12  lead">Coloquese en la Ubicacion del local
+                    </div>
+                    <!-- <div id="geocoder" class="geocoder"></div> -->
+                    <div [ngClass]="{'d-none':!formUser.controls['IsLocal'].value}" class="col-12" id="map_box"></div>
+                    <pre [ngClass]="{'d-none':!formUser.controls['IsLocal'].value}" id="coordinates" class="coordinates"></pre>
+                    <div class="col-12">
 
+
+                    </div>
                 </div>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
@@ -216,26 +174,30 @@
                     <div class="col-12">
                         <button [disabled]="selectOption" type="button" mat-raised-button (click)="newContacto()">Agregar nueva forma de contacto</button>
                         <mat-form-field class="w-100" appearance="fill">
-                            <mat-label for="contacto">{{selectOption?typeContact.name:'Toque el boton de arriba'}}</mat-label>
+                            <mat-label for="contacto">{{selectOption?typeContact.name:'Toque el boton de arriba'}}
+                            </mat-label>
                             <input id="contacto" [readonly]="!selectOption" matInput [type]="selectOption ?typeContact.format:'text'" formControlName="Contacto">
                             <mat-error>
                                 <strong> Maximo 5 Contactos no valido</strong>
                             </mat-error>
                         </mat-form-field>
-                        <div *ngIf="typeContact.type == 'red'">
+                        <!-- <div *ngIf="typeContact.type == 'red'">
                             <mat-radio-group formControlName="IconContactoRed" aria-label="Seleccion la red Social">
                                 <mat-radio-button [value]="iconRed.icon_facebook"><i class="fab fa-facebook-f"></i> facebook </mat-radio-button>
                                 <mat-radio-button [value]="iconRed.icon_instagram"><i class="fab fa-instagram"></i> Instagram </mat-radio-button>
-                                <mat-radio-button [value]="iconRed.icon_youtube"><i class="fab fa-youtube"></i> Youtube </mat-radio-button>
-                                <mat-radio-button [value]="iconRed.icon_linkin"><i class="fab fa-linkedin"></i> LinkedIn </mat-radio-button>
+                                <mat-radio-button [value]="iconRed.icon_youtube"><i class="fab fa-youtube"></i> Youtube
+                                </mat-radio-button>
+                                <mat-radio-button [value]="iconRed.icon_linkin"><i class="fab fa-linkedin"></i> LinkedIn
+                                </mat-radio-button>
                             </mat-radio-group>
-                        </div>
+                        </div> -->
                         <div *ngIf="typeContact.type == 'telefono'">
                             <mat-radio-group formControlName="IconContactoPhone" aria-label="Seleccion la red Social">
                                 <mat-radio-button [value]="iconPhone.icon_phoneLocal"><i class="fas fa-phone"></i> Telefono local </mat-radio-button>
                                 <mat-radio-button [value]="iconPhone.icon_phoneCell"><i class="fas fa-mobile-alt"></i> Celular </mat-radio-button>
                                 <mat-radio-button [value]="iconPhone.icon_whatsapp"><i class="fab fa-whatsapp"></i> Whatsapp </mat-radio-button>
-                                <mat-radio-button [value]="iconPhone.icon_line"><i class="fab fa-line"></i> Line </mat-radio-button>
+                                <mat-radio-button [value]="iconPhone.icon_line"><i class="fab fa-line"></i> Line
+                                </mat-radio-button>
                             </mat-radio-group>
                         </div>
                         <div *ngIf="selectOption" class="mb-2">
@@ -251,6 +213,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 mt-3">
+                        <!-- <mat-form-field class="w-100" appearance="fill">
+                            <mat-label for="logo">Logo o Foto</mat-label>
+                            <input type="text" id="logo" matInput formControlName="Logo">
+                            <mat-error *ngIf="!formUser.controls['Logo'].valid">
+                                Logo<strong> requerido</strong>
+                            </mat-error>
+                        </mat-form-field> -->
+                        <div class="form-group">
+                            <label for="my-input">Logo o Foto</label>
+                            <input (change)="loadImg($event)" accept="image/x-png,image/jpeg" id="my-input" class="form-control" type="file" formControlName="Logo">
+                            <!-- <mat-error *ngIf="!formUser.controls['Logo'].valid"> -->
+                            <span><strong>formato png o jpg, maximo 1 megabyte</strong></span>
+                            <!-- </mat-error> -->
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
@@ -259,12 +237,31 @@
             </form>
         </mat-step>
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
+            <ng-template matStepLabel>Palabras_Claves y fin</ng-template>
+            <div class="col-12">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label for="palabra">Palabras Claves</mat-label>
+                    <input id="palabra" [(ngModel)]="palabra" matInput type="text">
+                    <button type="button" mat-icon-button matSuffix (click)="addPalabras()"><i
+                            class="text-dark fas fa-plus-circle"></i></button>
+                </mat-form-field>
+                <small>Maximo 3 palabras de trabajo que realiza</small>
+                <div>
+                    <div *ngFor="let work of palabras_claves; let i = index" [attr.data-index]="i" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{work}}
+                        <button type="button" (click)="palabras_claves.splice(i, 1);" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <!-- <button mat-button (click)="sendRegister()">Enviar</button> -->
+                <button mat-button (click)="revisar()">Enviar</button>
+                <button class="float-right" mat-button (click)="openDialog()">Previsualizar</button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>
 </div>
+<!-- <div id="map_box" class="display-3 bg-success">hola</div> -->
